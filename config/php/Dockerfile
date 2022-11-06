@@ -13,14 +13,6 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/* && \
   docker-php-ext-install intl pdo_mysql zip bcmath
 
-WORKDIR /var/www
-# RUN composer create-project laravel/laravel:^8.0 laravel
-# WORKDIR /var/www/laravel
-# RUN php artisan key:generate
-# RUN php artisan storage:link
-# RUN chmod -R 777 storage bootstrap/cache
-# RUN php artisan migrate
-
 COPY ./apache2.conf /etc/apache2/
 COPY ./sites/*.conf /etc/apache2/sites-available/
 
